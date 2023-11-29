@@ -3,10 +3,8 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
 } from 'reactstrap';
 import {Link} from 'react-router-dom'
 
@@ -18,7 +16,7 @@ function Menu() {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
+      <Navbar color="dark" dark expand="md" className='bg-black'>
         <Link to="/" className='navbar-brand'>CodeChef</Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
