@@ -6,13 +6,14 @@ import {
   Nav,
   NavItem,
 } from 'reactstrap';
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 
 function Menu() {
 
-  const [paginaAtual, mudaPaginaAtual] = useState('home');
+  //const [paginaAtual, mudaPaginaAtual] = useState('home');
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const location = useLocation().pathname;
 
   return (
     <div>
@@ -22,13 +23,13 @@ function Menu() {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <Link to="/" className={paginaAtual === 'home' ? 'nav-link active' : 'nav-link'} onClick={() => mudaPaginaAtual('home')}>Início</Link>
+              <Link to="/" className={location === '/' ? 'nav-link active' : 'nav-link'}>Início</Link>
             </NavItem> 
             <NavItem>
-              <Link to="/cardapio" className={paginaAtual === 'cardapio' ? 'nav-link active' : 'nav-link'} onClick={() => mudaPaginaAtual('cardapio')}>Cardápio</Link>
+              <Link to="/cardapio" className={location === '/cardapio' ? 'nav-link active' : 'nav-link'}>Cardápio</Link>
             </NavItem>
             <NavItem>
-              <Link to="/contato" className={paginaAtual === 'contato' ? 'nav-link active' : 'nav-link'} onClick={() => mudaPaginaAtual('contato')}>Contato</Link>
+              <Link to="/contato" className={location === '/contato' ? 'nav-link active' : 'nav-link'}>Contato</Link>
             </NavItem>
           </Nav>
         </Collapse>
